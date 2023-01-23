@@ -1,5 +1,5 @@
 /**
- * Notes: 字符相关操作函数
+ * Notes: 字 符相关操作函数
  * Ver : CCMiniCloud Framework 2.5.1 ALL RIGHTS RESERVED BY cclinux0730 (wechat)
  * Date: 2020-09-05 04:00:00 
  */
