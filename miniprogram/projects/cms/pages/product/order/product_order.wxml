@@ -1,0 +1,7 @@
+<include src="../index/product_index.wxml" />
+
+
+<block wx:if="{{skin.IS_SUB}}">
+	<import src="../../tpls/menu_tpl.wxml" />
+	<template is="menuTpl" data="{{curMenu:'product_order',returnHome:false}}" />
+</block>

@@ -1,0 +1,55 @@
+<view wx:if="{{isLoad===null}}" class="margin-top load notexist text-l load-project"></view>
+<view wx:if="{{isLoad===false}}" class="margin-top load loading text-l load-project"></view>
+
+<block wx:if="{{isLoad}}">
+	<view class="main">
+		<!--<view class="cover">
+			<image bind:tap="url" data-type='img' data-url="{{product.PRODUCT_OBJ.cover[0]}}" class="loading" lazy-load="true" mode="widthFix" src="{{product.PRODUCT_OBJ.cover[0]}}" />
+		</view>-->
+		<view class="detail card-project shadow-project">
+			<view class="star text-yellow margin-left-xs">
+				<text wx:for="{{product.PRODUCT_OBJ.star}}" wx:key="k1" class="icon-favorfill margin-right-xxs"></text>
+			</view>
+
+			<view class="title"><text user-select="true">{{product.PRODUCT_TITLE}}</text></view>
+			<view class="line2">
+				<text>{{product.PRODUCT_ADD_TIME}} </text>
+				<text>{{product.PRODUCT_CATE_NAME}}</text>
+				<text><text class="icon-favor margin-right-xxxs"></text>{{product.PRODUCT_FAV_CNT}}</text>
+				<text><text class="icon-like margin-right-xxxs"></text>{{product.PRODUCT_LIKE_CNT}}</text>
+				<text><text class="icon-comment margin-right-xxxs"></text>{{product.PRODUCT_COMMENT_CNT}}</text>
+				<text><text class="icon-attention margin-right-xxxs"></text>{{product.PRODUCT_VIEW_CNT}}</text>
+			</view>
+
+			<view wx:if="{{product.PRODUCT_FORMS.length>4}}" style="height: 20rpx;"></view>
+			<view wx:if="{{item.mark!='content' && item.mark!='cover' && item.mark!='desc' && item.mark!='star' && item.val}}" wx:for="{{product.PRODUCT_FORMS}}" wx:key="k" class="line"><text>{{item.title}}：</text>{{item.val}}</view>
+
+			<view style="height: 30rpx;"></view>
+			<block wx:for="{{product.PRODUCT_OBJ.content}}" wx:key="key">
+				<view class="content" wx:if="{{item.type=='text'}}">
+					<text user-select="{{true}}">{{item.val}}</text>
+				</view>
+
+				<view class="pics" wx:if="{{item.type=='img'}}">
+					<image bindtap="url" data-type='img' data-url="{{item.val}}" class="loading" mode='widthFix' lazy-load="true" src="{{item.val}}">
+					</image>
+				</view>
+			</block>
+			<view style="height: 30rpx;"></view>
+
+		</view>
+
+	</view>
+
+
+
+	<cmpt-detail mode="mode2" topBtnShow="{{topBtnShow}}" oid="{{product._id}}" cate="{{product.PRODUCT_CATE_NAME}}" title="{{product.PRODUCT_TITLE}}" cover="{{product.PRODUCT_OBJ.cover[0]}}" qr="{{product.PRODUCT_QR}}" desc="查看详情" bg="{{skin.PROJECT_COLOR}}">
+		<view class="bottom-line">
+			<view wx:if="{{product.PRODUCT_LIKE_CNT>0}}" class="bt-tag bg-orange light">{{product.PRODUCT_LIKE_CNT}}</view>
+			<view bind:tap="url" data-url="../../comment/list/comment_list?id={{product._id}}" class="bt bg-project   margin-right">评论 <text wx:if="{{product.PRODUCT_COMMENT_CNT>0}}">({{product.PRODUCT_COMMENT_CNT}})</text></view>
+
+			<view bind:tap="bindLikeTap" class="bt  bg-project"><text class="icon-like{{product.like?'fill':''}} margin-right-xxs"></text>{{product.like?'已点赞':'点赞'}} </view>
+		</view>
+
+	</cmpt-detail>
+</block>

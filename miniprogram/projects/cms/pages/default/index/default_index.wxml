@@ -1,0 +1,93 @@
+<view class="main">
+
+	<view class="up">
+		<image mode="widthFix" src="../../../images/home.png" />
+	</view>
+	<view wx:if="{{!isLoad}}" class="margin-top load loading text-l load-project"></view>
+	<view wx:else class="down">
+		<view class="box">
+			<view class="line1">
+				<view class="query">
+					<view class="left">
+						<text class="icon-search"></text>
+						<input type="text" model:value="{{query}}" placeholder="搜索你感兴趣的内容" confirm-type="search" bindconfirm="bindSearchConfirm" maxlength="100"></input>
+					</view>
+					<view class="right" bind:tap="bindSearchConfirm">
+						搜索
+					</view>
+				</view>
+			</view>
+			<view class="swiper-box">
+				<swiper wx:if="{{swiper.length>0}}" class="swiper" style="height:250rpx" indicator-active-color="#0181FE" indicator-dots="{{true}}" autoplay="{{true}}" circular="{{circular}}" vertical="{{false}}" interval="3000" duration="500" previous-margin="0rpx" next-margin="0rpx">
+					<swiper-item wx:for="{{swiper}}" wx:key="k">
+						<image bindtap="url" data-url="{{item.type=='外部链接'?'../web/web?url=' + item.url:item.url}}" style="height:250rpx" lazy-load="{{true}}" src="{{item.img[0]}}" mode="aspectFill" class="swiper-item-images loading" />
+					</swiper-item>
+				</swiper>
+			</view>
+		</view>
+
+		<view class="box card-project shadow-project">
+			<view class="title">
+				<view class="t1"><text class="icon-circlefill"></text></view>
+				<view class="t2">精选栏目</view>
+				<view class="t3">热点栏目推荐</view>
+			</view>
+			<view class="menu">
+				<view class="item" wx:for="{{cateList}}" wx:key="k" bind:tap="url" data-url="../../product/index/product_index?cateId={{item._id}}&title={{item.en}}">
+					<image mode="aspectFill" class="loading" lazy-load="{{true}}" src="{{item.CATE1_OBJ.cover[0]}}" />
+					<text>{{item.CATE1_TITLE}}</text>
+				</view>
+			</view>
+		</view>
+
+		<view class="box card-project shadow-project">
+			<view class="title">
+				<view class="t1"><text class="icon-appreciatefill"></text></view>
+				<view class="t2">推荐文章</view>
+				<view class="t3">汇聚精彩文章</view>
+			</view>
+			<view class="list">
+				<view bindtap="url" data-url="../../product/detail/product_detail?id={{item._id}}" class="item text-cut" wx:for="{{vouchList}}" wx:key="k"><text class="icon-title  margin-right-xs" style="color:#ccc"></text>{{item.PRODUCT_TITLE}}</view>
+			</view>
+		</view>
+
+		<view class="box" style="background-color: unset;padding:20rpx 0">
+			<view class="title">
+				<view class="t1"><text class="icon-hotfill"></text></view>
+				<view class="t2">最热</view>
+				<view class="t3"> </view>
+			</view>
+			<view class="hot">
+				<view class="item shadow-project" bindtap="url" data-url="../../product/detail/product_detail?id={{item._id}}" wx:for="{{hotList}}" wx:key="key">
+					<view class="left">
+						<view class="line1">
+							<view class="title content-cut-two">
+								<text>{{item.PRODUCT_TITLE}}</text>
+							</view>
+						</view>
+						<view class="line2">
+							<text>{{item.PRODUCT_ADD_TIME}}</text>
+							<text><text class="icon-favor margin-right-xxxs"></text>{{item.PRODUCT_FAV_CNT}}</text>
+							<text><text class="icon-like margin-right-xxxs"></text>{{item.PRODUCT_LIKE_CNT}}</text>
+							<text><text class="icon-comment margin-right-xxxs"></text>{{item.PRODUCT_COMMENT_CNT}}</text>
+							<text><text class="icon-attention margin-right-xxxs"></text>{{item.PRODUCT_VIEW_CNT}}</text>
+						</view>
+					</view>
+					<view class="right">
+						<image mode="aspectFill" lazy-load="{{true}}" class="loading" src="{{item.PRODUCT_OBJ.cover[0]}}">
+						</image>
+					</view>
+
+
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<view style="height:100rpx"></view>
+</view>
+
+<block wx:if="{{skin.IS_SUB}}">
+	<import src="../../tpls/menu_tpl.wxml" />
+	<template is="menuTpl" data="{{curMenu:'home_index',returnHome:false}}" />
+</block>

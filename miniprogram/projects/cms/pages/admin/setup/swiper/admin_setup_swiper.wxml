@@ -1,0 +1,44 @@
+<view wx:if="{{!isLoad}}" class="margin-top load loading text-l text-grey"></view>
+<block wx:if="{{isAdmin&&isLoad}}">
+	<view class="main">
+		<block wx:for="{{formItem}}" wx:key="key">
+			<view class="form-box shadow" id="item_{{index}}">
+				<view class="form-group" style="width:100%;justify-content: space-between;">
+					<view style="width: 100rpx;" class="text-grey">第{{index+1}}项</view>
+					<view style="flex:1;font-size: 35rpx;text-align: right;opacity: .9;" bindtap="bindDelItemTap" data-idx="{{index}}" class="icon-delete margin-left-xs text-red;"></view>
+				</view>
+				<view class="form-group">
+					<text class="title must">类型：</text>
+					<cmpt-radio data-idx="{{index}}" bind:select="bindRadioSelect" mark="type" style="flex:1" itemSelected="{{item.type}}" show="row" sourceData="{{['文章','外部链接']}}" />
+				</view>
+				<view class="form-group">
+					<text class="title must">链接：</text><input wx:if="{{item.type=='外部链接'}}" bindinput='bindItemBlurUrl' bindblur='bindItemBlurUrl' type="url" class="ipt1 margin-left" data-idx="{{index}}" placeholder="请填写链接" maxlength="300" placeholder-class="phc" value="{{item.url}}"></input>
+					<view bind:tap="url" data-url="../../product/list/admin_product_list?swiper={{index}}" wx:if="{{item.type=='文章'}}" class="btn bg-admin">选择文章<text class="icon-right"></text></view>
+					<view bind:tap="bindShowCateModalTap" wx:if="{{item.type=='分类'}}" class="btn bg-admin">选择分类<text class="icon-right"></text></view>
+				</view>
+				<view class="form-group">
+					<text class="title must">备注：</text><input bindinput='bindItemBlurDesc' bindblur='bindItemBlurDesc' type="desc" class="ipt1 margin-left" data-idx="{{index}}" placeholder="请填写备注" maxlength="18" placeholder-class="phc" value="{{item.desc}}"></input>
+				</view>
+
+				<view class="form-box" style="padding:0">
+					<!-- img upload begin -->
+					<cmpt-img-upload data-idx="{{index}}" showTitle="{{mode=='edit'}}" imgMax="{{1}}" title="图片上传" isCheck="{{false}}" imgUploadSize="{{10}}" imgList="{{item.img}}" bind:upload="bindImgUploadCmpt" />
+					<!-- img upload end -->
+
+				</view>
+				<!--<view wx:if="{{item.focus}}" class="hint-desc error">{{item.focus}}</view>-->
+
+			</view>
+		</block>
+
+		<view class="form-group" bindtap="bindAddItemTap">
+			<view class="title text-blue" style="font-weight:normal;font-size:30rpx;"> <text class="icon-roundaddfill margin-right-xs" style="font-size:40rpx;"></text>添加新的轮播图
+			</view>
+
+		</view>
+
+		<button bindtap="bindFormSubmit" class="btn-base btn-admin shadow  margin-top-xs">提交保存</button>
+	</view>
+
+ 
+</block>

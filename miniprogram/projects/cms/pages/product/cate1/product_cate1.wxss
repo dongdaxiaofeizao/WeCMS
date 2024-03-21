@@ -1,0 +1,102 @@
+ @import "../../../style/skin.wxss"; 
+
+ page {
+ 	background-color: #f2f2f2 !important;
+ }
+
+ .main {
+ 	padding: 30rpx 20rpx 100rpx;
+ }
+
+
+ .list {
+ 	width: 100%;
+ 	display: flex;
+ 	flex-wrap: wrap;
+ }
+
+ .list .item {
+ 	width: calc((100% - 20rpx) / 2);
+ 	padding: 0rpx 0 26rpx;
+ 	display: flex;
+ 	flex-direction: column;
+ 	justify-content: flex-start;
+ 	align-items: center;
+ 	background-color: #fff;
+ 	margin-bottom: 24rpx;
+ 	border-radius: 16rpx;
+ 	position: relative;
+ 	overflow: hidden;
+ 	height: 400rpx;
+ }
+
+ .list .item .mark {
+ 	position: absolute;
+ 	top: 8rpx;
+ 	right: 10rpx;
+ 	font-size: 22rpx;
+ 	background-color: rgba(0, 0, 0, .1);
+ 	padding: 4rpx 8rpx;
+ 	color: #fff;
+ 	border-radius: 8rpx;
+ 	z-index: 9;
+ 	opacity: .8;
+ }
+
+ .list .item:nth-child(odd) {
+ 	margin-right: 20rpx;
+ }
+
+ .list .item .line1 {
+ 	position: absolute;
+ 	top: 0;
+ 	right: 0;
+ 	bottom: 0;
+ 	left: 0;
+ 	background-size: cover;
+ 	filter: blur(60rpx);
+ 	width: 100%;
+ 	height: 150rpx;
+ }
+
+ .list .item .line2 {
+ 	position: absolute;
+ 	top: 145rpx;
+ 	right: 0;
+ 	bottom: 0;
+ 	left: 0;
+ 	background-color: #fff;
+ 	height: 150rpx;
+ }
+
+ .list .item>image {
+ 	width: 130rpx;
+ 	height: 130rpx;
+ 	border-radius: 50%;
+ 	border: 2rpx solid #fff;
+ 	overflow: hidden;
+ 	margin-top: 80rpx;
+ }
+
+ .list .item .title {
+ 	font-size: 30rpx;
+ 	color: #000;
+ 	margin-top: 6rpx;
+ 	z-index: 9;
+ }
+
+ .list .item .cnt {
+ 	font-size: 20rpx;
+ 	color: #999;
+ 	margin-top: 8rpx;
+ 	z-index: 9;
+ }
+
+ .list .item .desc {
+ 	font-size: 24rpx;
+ 	color: #999;
+ 	margin-top: 20rpx;
+ 	padding: 0 20rpx;
+ 	z-index: 9;
+ 	text-align: center;
+ }

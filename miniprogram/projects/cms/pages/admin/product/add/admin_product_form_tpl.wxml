@@ -1,0 +1,33 @@
+<view class="form-box shadow">
+	<view class="form-group">
+		<view class="title must">标题</view>
+	</view>
+
+	<view class="form-group">
+		<input placeholder="简短的标题" placeholder-class="phc" model:value="{{formTitle}}" focus="{{formTitleFocus}}" maxlength="50"></input>
+	</view>
+	<view wx:if="{{formTitleFocus}}" class="hint-desc error">{{formTitleFocus}}</view>
+
+	<view class="form-group">
+		<view class="title must">排序号<text class="text-grey text-normal margin-left-xs">(小的先显示)</text></view>
+		<input placeholder="排序号，小的先显示" type="number" placeholder-class="phc" model:value="{{formOrder}}" focus="{{formOrderFocus}}" maxlength="4"></input>
+	</view>
+	<view wx:if="{{formOrderFocus}}" class="hint-desc error">{{formOrderFocus}}</view>
+
+	<view class="form-group arrow" id="formCateId">
+		<view class="title must">分类</view>
+		<cmpt-picker-multi style="flex:1" id="cate-picker" isSlot="{{true}}" steps="2" sourceData="{{cateIdOptions}}" bind:select="bindCateIdCmpt" data-type="picker" data-item="formCateId" itemMulti="{{formCateId}}">
+			<view class="form-text" style="flex:1;text-align: right;">{{cateName}}</view>
+		</cmpt-picker-multi>
+	</view>
+	<view wx:if="{{formCateIdFocus}}" class="hint-desc error">{{formCateIdFocus}}</view>
+
+</view>
+
+<view class="form-box shadow margin-top-xs">
+	<cmpt-form-show id="cmpt-form" mark="cmpt-form" source="admin" isCacheMatch="{{false}}" fields="{{fields}}" forms="{{formForms}}" isDefMatch="{{id?false:true}}">
+	</cmpt-form-show>
+</view>
+
+
+<button bindtap="bindFormSubmit" class="btn-admin margin-top-xs">提交</button>

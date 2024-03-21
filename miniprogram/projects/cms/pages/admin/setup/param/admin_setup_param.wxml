@@ -1,0 +1,37 @@
+<view wx:if="{{!isLoad}}" class="margin-top load loading text-l text-grey"></view>
+<view class="main" wx:if="{{isAdmin&&isLoad}}">
+	<view class="form-box shadow margin-top-xs"> 
+		<view class="info">
+			<view class="desc"><text class="icon-info margin-right-xs"></text>设定文章需要展示的字段项，则录入文章的时候会要求填写!</view>
+		</view>  
+	</view>
+
+	<block wx:for="{{formItem}}" wx:key="key">
+		<view class="form-box shadow" id="item_{{index}}">
+			<view class="form-group" style="width:100%;justify-content: space-between;">
+				<view style="width: 100rpx;" class="text-grey">第{{index+1}}项</view>
+				<view style="flex:1;font-size: 35rpx;text-align: right;opacity: .9;" bindtap="bindDelItemTap" data-idx="{{index}}" class="icon-delete margin-left-xs text-red;"></view>
+			</view>
+			<view class="form-group">
+				<text class="title">字段名称：</text><input bindinput='bindItemBlurName' bindblur='bindItemBlurName' type="name" class="ipt1 margin-left" data-idx="{{index}}" placeholder="请填写字段名称" maxlength="18" placeholder-class="phc" value="{{item.name}}"></input>
+			</view>
+			<view class="form-group">
+				<text class="title">是否必填：</text>
+				<switch wx:if="{{item.must}}" bindchange="switchModel" data-idx="{{index}}" class="blue sm" checked="true">
+				</switch>
+				<switch wx:elif="{{!item.must}}" bindchange="switchModel" data-idx="{{index}}" class="blue sm">
+				</switch>
+			</view>
+			<view wx:if="{{item.focus}}" class="hint-desc error">{{item.focus}}</view>
+
+		</view>
+	</block>
+
+	<view class="form-group" bindtap="bindAddItemTap">
+		<view class="title text-blue" style="font-weight:normal;font-size:30rpx;"> <text class="icon-roundaddfill margin-right-xs" style="font-size:40rpx;"></text>添加新的字段
+		</view>
+
+	</view>
+
+	<button bindtap="bindFormSubmit" class="btn-base btn-admin shadow  margin-top-xs">提交保存</button>
+</view>

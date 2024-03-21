@@ -1,0 +1,30 @@
+<view class="main">
+
+	<view wx:if="{{!isLoad}}" class="margin-top load loading text-l load-project"></view>
+	<view wx:elif="{{cateList.length==0}}" class="text-center text-grey margin-top-xl">暂无分类展示~</view>
+	<block wx:else>
+
+		<view class="list">
+			<block wx:for="{{cateList}}" wx:key="key"> 
+				<view  bind:tap="url" data-url="../../product/index/product_index?cateId={{item.val}}&title={{item.en}}" class="item shadow-project">
+					<!--<view class="mark"><text class="icon-attention margin-right-xxs"></text>订阅</view>-->
+					<view class="line1" style="background-image: url('{{item.obj.cover[0]}}');"></view>
+					<view class="line2" />
+					<image class="loading" lazy-load="{{true}}" mode="aspectFill" src="{{item.obj.cover[0]}}" />
+					<view class="title content-cut-one">{{item.label}}</view>
+					<view class="cnt">{{item.cnt}}篇文章</view>
+					<view class="desc content-cut-two">{{item.obj.desc}}</view>
+
+				</view>
+			</block>
+		</view>
+
+	</block>
+</view>
+
+
+<block wx:if="{{skin.IS_SUB}}">
+	<import src="../../tpls/menu_tpl.wxml" />
+	<view style="height: 100rpx;"></view>
+	<template is="menuTpl" data="{{curMenu:'product_cate1',returnHome:false}}" />
+</block>

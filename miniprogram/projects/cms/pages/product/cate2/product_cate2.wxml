@@ -1,0 +1,18 @@
+<view class="main"> 
+
+	<view class="list">
+		<view wx:if="{{isLoad===false}}" class="margin-top load loading text-l load-project"></view> 
+		<view wx:elif="{{cate2List.length==0}}" class="text-center text-grey">暂无文章分类展示~</view>
+		<block wx:else>
+		<view bind:tap="url" data-url="../index/product_index?cateId={{item.val}}&title={{item.label}}" class="item" wx:for="{{cate2List}}" wx:key="k">
+			<view class="left">
+				<image class="loading shadow" mode="aspectFill" src="{{item.obj.cover[0]}}" lazy-load="{{true}}" />
+			</view>
+			<view class="right">
+				<view class="line1">{{item.label}}</view>
+				<view class="line2 content-cut-two">{{item.obj.desc}}</view>
+			</view>
+		</view>
+		</block>
+	</view>
+</view>

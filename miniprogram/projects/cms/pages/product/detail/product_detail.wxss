@@ -1,0 +1,123 @@
+ @import "../../../style/skin.wxss";
+
+ .main {
+ 	padding: 20rpx 15rpx;
+ }
+
+ .detail {
+ 	width: 100%;
+ 	background-color: #ffffff;
+ 	padding: 20rpx 20rpx;
+ 	position: relative;
+ }
+
+ .detail .star {
+ 	position: absolute;
+ 	top: 8rpx;
+ 	right: 8rpx;
+ }
+
+ .detail .title {
+ 	width: 100%;
+ 	font-size: 36rpx;
+ 	color: #000;
+ 	font-weight: bold;
+ 	padding: 20rpx 10rpx;
+ }
+
+ .detail .line {
+ 	width: 100%;
+ 	font-size: 28rpx;
+ 	color: #666;
+ 	padding: 6rpx 10rpx;
+ }
+
+ .detail .line>text {
+ 	color: #999;
+ }
+
+ .detail .line2 {
+ 	width: 100%;
+ 	font-size: 22rpx;
+ 	color: #aaa;
+ 	padding: 4rpx 10rpx;
+ 	text-align: left;
+ }
+
+ .detail .line2>text {
+ 	margin-right: 20rpx;
+ }
+
+ .detail .content {
+ 	margin-top: 10rpx;
+ 	color: #101010;
+ 	font-size: 28rpx;
+ 	text-align: justify;
+ 	line-height: 1.8;
+ 	padding: 0 10rpx;
+ }
+
+ .detail .pics {
+ 	margin-top: 30rpx;
+ 	display: flex;
+ 	flex-direction: column;
+ 	justify-content: center;
+ 	align-items: center;
+ }
+
+ .detail .pics image {
+ 	width: 100%;
+ 	border-radius: 10rpx;
+ 	margin-bottom: 0rpx;
+ }
+
+
+ .bottom-line {
+ 	width: 100%;
+ 	height: 140rpx;
+ 	background-color: #fff;
+ 	border-radius: 60rpx;
+ 	display: flex;
+ 	justify-content: flex-end;
+ 	align-items: center;
+ 	padding: 0 20rpx;
+ }
+
+ .bottom-line .bt {
+ 	padding: 20rpx 40rpx;
+ 	background-color: var(--projectColor);
+ 	border-radius: 50rpx;
+ 	color: #fff;
+ 	text-align: center;
+ 	font-size: 28rpx;
+ }
+
+ .small-t {
+ 	font-size: 28rpx;
+ 	font-weight: normal;
+ 	margin-left: 3rpx;
+ }
+
+ .bottom-line {
+ 	padding: 0
+ }
+
+ .cmpt-biz-detail-mode2 .inner .slot-inner {
+ 	flex: 1;
+ 	display: flex;
+ 	justify-content: flex-start;
+ }
+
+ .cmpt-biz-detail-mode2 .inner {
+ 	padding: 0 !important;
+ }
+
+ .bt-tag {
+ 	position: absolute;
+ 	top: 10rpx;
+ 	right: 14rpx;
+ 	z-index: 9999;
+ 	font-size: 24rpx;
+ 	padding: 2rpx 12rpx;
+ 	border-radius: 30%;
+ }

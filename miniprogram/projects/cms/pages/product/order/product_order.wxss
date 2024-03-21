@@ -1,0 +1,5 @@
+@import "../index/product_index.wxss";
+
+.tabs scroll-view {
+	text-align: center !important;
+}

@@ -1,0 +1,256 @@
+@import "../../../../../style/public/comm_box_list.wxss";
+@import "../../../style/skin.wxss";
+
+
+.main {
+	padding: 0rpx 0rpx 100rpx;
+}
+
+.swiper-box {
+	border-radius: 10rpx;
+	overflow: hidden;
+	transform: translateY(0);
+}
+
+.swiper {
+	width: 100%;
+	margin-top: 0rpx;
+	overflow: hidden;
+	transform: translateY(0);
+}
+
+.swiper-item-images {
+	width: 100%;
+	border-radius: 10rpx;
+}
+
+/*指示点*/
+swiper .wx-swiper-dots .wx-swiper-dot {
+	width: 15rpx;
+	height: 10rpx;
+	border-radius: 4rpx;
+}
+
+/*指示点区域*/
+swiper .wx-swiper-dots {
+	background: rgba(0, 0, 0, .25);
+	border-radius: 20rpx;
+	margin-bottom: 0rpx;
+	padding: 14rpx 40rpx
+}
+
+.wx-swiper-dots.wx-swiper-dots-horizontal {
+	margin-bottom: 0rpx;
+}
+
+/* 选中指示点的样式 */
+swiper .wx-swiper-dot.wx-swiper-dot-active {
+	width: 30rpx;
+	height: 10rpx;
+	border-radius: 4rpx;
+}
+
+.up {
+	width: 100%;
+	background-color: var(--projectColor);
+	height: 450rpx;
+}
+
+.up image {
+	width: 100%;
+}
+
+.down {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 0 20rpx;
+	margin-top: -150rpx;
+	z-index: 9;
+}
+
+.down .box {
+	width: 100%;
+	background-color: #fff;
+	min-height: 230rpx;
+	border-radius: 10rpx;
+	padding: 30rpx 20rpx;
+	margin-bottom: 30rpx;
+}
+
+.down .box .title {
+	display: flex;
+	align-items: baseline;
+}
+
+.down .box .title .t1 {
+	margin-right: 8rpx;
+	color: var(--projectColor)
+}
+
+.down .box .title .t2 {
+	color: #000;
+	font-size: 28rpx;
+}
+
+.down .box .title .t3 {
+	color: #999;
+	font-size: 24rpx;
+	margin-left: 14rpx;
+}
+
+.down .box .menu {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 20rpx 0rpx;
+	margin-top: 20rpx;
+}
+
+.down .box .menu .item {
+	width: 25%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.down .box .menu .item>image {
+	width: 85rpx;
+	height: 85rpx;
+	border-radius: 50%;
+}
+
+.down .box .menu .item>text {
+	font-size: 24rpx;
+	color: #666;
+	text-align: center;
+	margin-top: 10rpx;
+	width: 100%;
+}
+
+.down .box .list {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-top: 18rpx;
+	padding: 0 10rpx;
+}
+
+.down .box .list .item {
+	font-size: 24rpx;
+	color: #333;
+	padding: 14rpx 0;
+	border-bottom: 2rpx dashed #ccc
+}
+
+.down .box .list .item:last-child {
+	border-bottom: 0rpx dotted #ccc
+}
+
+.query {
+	width: 100%;
+	display: flex;
+	padding: 0rpx 0rpx 26rpx;
+	align-items: center;
+	background-color: #fff;
+}
+
+.query .left {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	background-color: #f8f8f8;
+	padding: 10rpx 20rpx;
+	border-radius: 24rpx;
+	font-size: 24rpx;
+}
+
+.query .left .icon-search {
+	color: #999;
+	font-size: 30rpx;
+	margin-right: 20rpx;
+	font-weight: bold;
+}
+
+.query .left input {
+	width: 100%;
+}
+
+
+.query .right {
+	padding: 10rpx 30rpx;
+	display: flex;
+	color: #fff;
+	justify-content: center;
+	background-color: var(--projectColor);
+	border-radius: 28rpx;
+	text-align: center;
+	font-size: 26rpx;
+	margin-left: 20rpx;
+}
+
+.hot {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 20rpx 0rpx 30rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.hot .item {
+	padding: 22rpx 22rpx;
+	display: flex;
+	border-radius: 10rpx;
+	margin-bottom: 20rpx;
+	position: relative;
+	background-color: #fff;
+	overflow: hidden;
+}
+
+.hot .item .left {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.hot .item .left .line1 {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.hot .item .left .line1 .title {
+	font-size: 30rpx;
+	color: #000;
+	font-weight: bold;
+}
+
+.hot .item .left .line2 {
+	width: 100%;
+	font-size: 22rpx;
+	color: #bbb;
+	text-align: left;
+	font-family: "din";
+	font-weight: normal;
+}
+
+.hot .item .left .line2>text {
+	margin-right: 20rpx;
+}
+
+.hot .item .right {
+	width: 190rpx;
+	height: 124rpx;
+	border-radius: 10rpx;
+	margin-left: 20rpx;
+	position: relative;
+}
+
+.hot .item .right>image {
+	width: inherit;
+	height: inherit;
+	border-radius: inherit;
+}

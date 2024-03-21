@@ -1,0 +1,16 @@
+@import '../../../../../../style/public/admin.wxss';
+
+.form-box .info {
+	width: 100%;
+	padding: 36rpx; 
+	display: flex; 
+	justify-content: flex-start; 
+}
+
+
+.form-box .info .desc {
+	width: 100%;
+	font-size: 28rpx;
+	text-align: left;
+	color: #666;
+}

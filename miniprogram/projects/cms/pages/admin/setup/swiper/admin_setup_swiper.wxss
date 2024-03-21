@@ -1,0 +1,80 @@
+@import '../../../../../../style/public/admin.wxss';
+
+.form-box {
+	padding: 10rpx 20rpx;
+}
+
+.ipt1 {
+	border-bottom: 0rpx solid #ccc;
+	background-color: #fff;
+	text-align: right;
+	margin-right: 10rpx;
+}
+
+.checkbox-group .item {
+	border-bottom: 0 !important;
+}
+
+.checkbox-group .item:nth-child(odd) {
+	background-color: #fff !important;
+}
+
+.form-group .upload-img {
+	justify-content: center;
+}
+
+.form-group .upload-img>view {
+	width: 600rpx !important;
+	height: 255rpx !important;
+}
+
+
+.cate-modal {
+	width: 100%;
+	padding: 20rpx;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	padding-bottom: 100rpx;
+}
+
+.cate-modal .item {
+	width: calc((100% - 45rpx) / 3);
+	border: 1rpx solid #ccc;
+	margin-bottom: 20rpx;
+	border-radius: 20rpx;
+	padding: 20rpx 10rpx;
+	display: flex;
+	flex-direction: column;
+	color: #666;
+}
+
+.cate-modal .item:nth-child(3n+1),
+.cate-modal .item:nth-child(3n+2) {
+	margin-right: 15rpx;
+}
+
+.cate-modal .item .t {
+	font-size: 28rpx;
+	margin-bottom: 10rpx;
+}
+
+.cate-modal .item .cate {
+	font-size: 24rpx;
+	color: #bbb
+}
+
+.cate-modal .item.selected .cate {
+	color: #fff
+}
+
+.cate-modal .item.selected {
+	border-color: #eee;
+	color: #fff;
+	background-color: var(--blue);
+}
+
+.cate-modal .item.cur .t {
+	color: #000
+}
